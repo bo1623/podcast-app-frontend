@@ -1,14 +1,24 @@
 import {combineReducers} from 'redux';
-import cuid from 'cuid';
+import uuid from 'uuid';
 
 
-const podcastReducer = (state=[],action) => {
+const rootReducer=combineReducers({
+  podcasts: podcastsReducer,
+  subscriptions: subscriptionsReducer
+})
+
+export default rootReducer;
+
+function podcastsReducer(state=[],action){
 
   switch(action.type){
     case "ADD_PODCAST":
+      console.log(action)
       const podcasts = action.podcasts.map(podcast => {
-        id: cuid(),
-        title: podcast.name
+        return {
+          id: uuid(),
+          title: podcast.url
+        }
       })
       return {
         podcasts
@@ -20,8 +30,17 @@ const podcastReducer = (state=[],action) => {
 }
 
 
-const subscribedReducer = (state=[],action) => {
+function subscriptionsReducer(state=[],action){
 
+  switch(action.type){
+    case "ADD_SUBSCRIPTION":
+      return [...state,action.podcast]
 
+    case "REMOVE_SUBSCRIPTION":
+      return state.filter(podcast=>podcast.id!==action.id)
+
+    default:
+      return state
+  }
 
 }
