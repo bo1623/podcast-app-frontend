@@ -1,15 +1,29 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Route
+} from 'react-router-dom';
+import NavBar from './containers/NavBar';
 import PodcastsContainer from './containers/PodcastsContainer'
+
 
 function App() {
   return (
-    <PodcastsContainer />
+    <Router>
+      <div>
+        <NavBar />
+        <Route exact path='/podcasts' component={PodcastsContainer} />
+      </div>
+    </Router>
   );
 }
 
 export default App;
+
+
+// <Route exact path='/' component={Home}/>
 
 //
 // <div className="App">
