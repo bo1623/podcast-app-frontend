@@ -33,6 +33,15 @@ function podcastsReducer(state=[],action){
   }
 }
 
+function episodesReducer(state=[],action){
+  switch(action.type){
+    case "ADD_EPISODES":
+      console.log(action)
+    default:
+      return state
+  }
+}
+
 
 function subscriptionsReducer(state=[],action){
 
