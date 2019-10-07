@@ -16,8 +16,12 @@ function podcastsReducer(state=[],action){
       console.log(action)
       const podcasts = action.podcasts.map(podcast => {
         return {
-          id: uuid(),
-          title: podcast.url
+          podcast_id: podcast.id,
+          title: podcast.title,
+          thumbnail: podcast.thumbnail,
+          image: podcast.image,
+          total_episodes: podcast.total_episodes,
+          latest_publication: podcast.latest_pub_date_ms
         }
       })
       return {
