@@ -4,7 +4,7 @@ import uuid from 'uuid';
 
 const rootReducer=combineReducers({
   podcasts: podcastsReducer,
-  subscriptions: subscriptionsReducer,
+  playlist: playlistReducer,
   episodes: episodesReducer
 })
 
@@ -41,11 +41,13 @@ function episodesReducer(state=[],action){
       const episodes=action.podcast.episodes.map(episode=>{
         return{
           title: episode.title,
+          audio_url: episode.listennotes_url,
           podcast_id: action.podcast.id,
           episode_id: episode.id,
           audio_length: episode.audio_length_sec,
           description: episode.description,
           published_date: episode.pub_date_ms
+
         }
       })
       return{
@@ -57,13 +59,13 @@ function episodesReducer(state=[],action){
 }
 
 
-function subscriptionsReducer(state=[],action){
+function playlistReducer(state=[],action){
 
   switch(action.type){
-    case "ADD_SUBSCRIPTION":
+    case "ADD_TO_PLAYLIST":
       return [...state,action.podcast]
 
-    case "REMOVE_SUBSCRIPTION":
+    case "REMOVE_FROM_PLAYLIST":
       return state.filter(podcast=>podcast.id!==action.id)
 
     default:

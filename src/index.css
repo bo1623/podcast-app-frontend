@@ -15,3 +15,10 @@ code {
 .episode br{
   display: none;
 }
+
+
+iframe{
+  width: 1px;
+  min-width: 100%;
+  border:0; 
+}
