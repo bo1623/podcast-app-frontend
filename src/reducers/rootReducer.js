@@ -38,9 +38,10 @@ function episodesReducer(state=[],action){
   switch(action.type){
     case "ADD_EPISODES":
       console.log(action)
-      const episodes=action.episodes.map(episode=>{
+      const episodes=action.podcast.episodes.map(episode=>{
         return{
           title: episode.title,
+          podcast_id: action.podcast.id,
           episode_id: episode.id,
           audio_length: episode.audio_length_sec,
           description: episode.description,

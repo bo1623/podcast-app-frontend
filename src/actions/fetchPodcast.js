@@ -7,7 +7,7 @@ const fetchPodcast = (id) => {
         'X-ListenAPI-Key':'b5ad33b748ea42279366ccafabbd2d87'
       }
     }).then(resp=>resp.json())
-  .then(json=>dispatch({type:"ADD_EPISODES", episodes: json.episodes}))
+  .then(json=>dispatch({type:"ADD_EPISODES", podcast: json}))
   }
 }
 
