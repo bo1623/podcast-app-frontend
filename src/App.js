@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 import NavBar from './containers/NavBar';
 import PodcastsContainer from './containers/PodcastsContainer'
+import PodcastEps from './components/PodcastEps'
 
 
 function App() {
@@ -15,12 +16,16 @@ function App() {
       <div>
         <NavBar />
         <Route exact path='/podcasts' component={PodcastsContainer} />
+        <Route path='/episodes' component={PodcastEps} />
       </div>
     </Router>
   );
 }
 
 export default App;
+
+
+// <Route path='podcasts/:podcastId' render={routerProps => <PodcastEps {...routerProps} />}/>
 
 // <Route exact path='/podcasts' render={routerProps => <PodcastsContainer {...routerProps}/>} />
 // <Route exact path='/podcasts' component={PodcastsContainer} />
