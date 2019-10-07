@@ -10,6 +10,12 @@ import fetchPodcast from '../actions/fetchPodcast'
 
 class Podcast extends Component{
 
+  handleOnClick = () => {
+    debugger;
+    console.log('click is working')
+    this.props.addEpisodes(this.props.podcast.podcast_id)
+  }
+
   render(){
     const {podcast} = this.props
 
@@ -17,11 +23,11 @@ class Podcast extends Component{
       <Router>
         <div className='podcast'>
           <img src={podcast.image} />
-          <div className='podcast-details'>
+          <div className='podcast-details' onClick={()=>this.props.addEpisodes(podcast.podcast_id)}>
             <Link
               key={podcast.podcast_id}
               to={`/podcasts/${podcast.podcast_id}`}
-              onClick={()=>this.props.addEpisodes(podcast.podcast_id)}
+              onClick={() => this.props.addEpisodes(podcast.podcast_id)}
             >{podcast.title}</Link>
             <br></br>
             <span>Total Episodes: {podcast.total_episodes}</span>
