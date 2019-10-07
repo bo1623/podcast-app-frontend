@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import fetchPodcasts from '../actions/fetchPodcasts'
 import {connect} from 'react-redux'
-import PodcastList from '../components/PodcastList'
+import Podcast from '../components/Podcast'
 import { Route } from 'react-router-dom';
 
 class PodcastsContainer extends Component{
@@ -16,13 +16,12 @@ class PodcastsContainer extends Component{
     let podcast
     if(!!this.props.podcasts.podcasts){ //if the podcasts have loaded onto the state successfully then only can we carry out the line below,
       //otherwise an error will be thrown saying map cannot be called on undefined
-      podcast=this.props.podcasts.podcasts.map(podcast=><Podcast podcast={podcast} />)
+      podcast=this.props.podcasts.podcasts.map(podcast=><Podcast podcast={podcast}/>)
     }
     return (
       <div className='podcast-container'>
         <ul>
           {podcast}
-          <PodcastList podcasts={this.props.podcasts.podcasts}
         </ul>
       </div>
     )
@@ -45,3 +44,5 @@ export default connect(mapStateToProps,mapDispatchToProps)(PodcastsContainer)
 // <ul>
 //   {this.props.podcasts.map(podcast=><Podcast podcast={podcast} />)}
 // </ul>
+
+// <PodcastList podcasts={this.props.podcasts.podcasts}

@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import { Link } from 'react-router-dom';
 
 class Podcast extends Component{
 
@@ -9,7 +10,7 @@ class Podcast extends Component{
       <div className='podcast'>
         <img src={podcast.image} />
         <div className='podcast-details'>
-          <span>{podcast.title}</span>
+          <Link key={podcast.podcast_id} to={`/podcasts/${podcast.podcast_id}`}>{podcast.title}</Link>
           <br></br>
           <span>Total Episodes: {podcast.total_episodes}</span>
         </div>
@@ -19,6 +20,7 @@ class Podcast extends Component{
   }
 
 }
+
 
 
 export default Podcast;

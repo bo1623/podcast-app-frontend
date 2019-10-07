@@ -14,7 +14,7 @@ function App() {
     <Router>
       <div>
         <NavBar />
-        <Route exact path='/podcasts' render={routerProps => <PodcastsContainer {...routerProps}/>} />
+        <Route exact path='/podcasts' component={PodcastsContainer} />
       </div>
     </Router>
   );
@@ -22,6 +22,7 @@ function App() {
 
 export default App;
 
+// <Route exact path='/podcasts' render={routerProps => <PodcastsContainer {...routerProps}/>} />
 // <Route exact path='/podcasts' component={PodcastsContainer} />
 // <Route exact path='/' component={Home}/>
 
