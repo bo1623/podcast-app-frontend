@@ -15,10 +15,10 @@ export default class Episode extends Component {
     const months=['January','February','March','April','May','June','July','August','September','October','November','December']
     const d=new Date(episode.published_date)
     const datestring= d.getDate()+' '+months[d.getMonth()]+' '+d.getFullYear()
-  
+
     return(
       <div className="episode">
-        <div>{episode.title} <button>Add to Playlist</button> </div>
+        <div className="episode-title">{episode.title} <button>Add to Playlist</button> </div>
         <Markup content={description}/>
         <p>Published: {datestring}</p>
         <p>Duration: {episode.audio_length}</p>

@@ -10,7 +10,7 @@
 const fetchPodcasts = () => {
   return dispatch => {
     // dispatch({type:"LOADING_CATS"})
-    fetch('https://listen-api.listennotes.com/api/v2/best_podcasts?genre_id=93&page=2&region=us&safe_mode=1',{
+    fetch('https://listen-api.listennotes.com/api/v2/best_podcasts?genre_id=93',{
       method: 'GET',
       headers: {
         'X-ListenAPI-Key':'b5ad33b748ea42279366ccafabbd2d87'

@@ -1,4 +1,4 @@
-export const genre_ids = [
+const genre_ids = [
 {id: 139, name: "VR & AR", parent_id: 127}
 ,{id: 140, name: "Web Design", parent_id: 127}
 ,{id: 237, name: "Earth Sciences", parent_id: 107}
@@ -160,3 +160,5 @@ export const genre_ids = [
 ,{id: 105, name: "Design", parent_id: 100}
 ,{id: 96, name: "Shopping", parent_id: 93}
 ]
+
+export default genre_ids

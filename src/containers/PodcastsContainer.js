@@ -7,6 +7,7 @@ import {
   Route
 } from 'react-router-dom';
 import EpisodesContainer from './EpisodesContainer'
+import genre_ids from '../genre_ids'
 
 class PodcastsContainer extends Component{
 
@@ -15,9 +16,16 @@ class PodcastsContainer extends Component{
     this.props.fetchPodcasts()
   }
 
+  handleOnChange = (event) =>{
+    console.log('dropdown list is working')
+    const genreId=event.target.value
+    
+  }
+
   render(){
-    // console.log(this.props.podcasts.podcasts)
+    console.log(genre_ids)
     console.log(this.props.match)
+    const sorted_genres=genre_ids.sort((a, b) => (a.name > b.name) ? 1 : -1)
     const {match} = this.props
     let podcast
     if(!!this.props.podcasts.podcasts){ //if the podcasts have loaded onto the state successfully then only can we carry out the line below,
@@ -26,6 +34,10 @@ class PodcastsContainer extends Component{
     }
     return (
       <div className='podcast-container'>
+        <select id="genre-search" onChange={this.handleOnChange}>
+          <option select="selected"></option>
+          {sorted_genres.map(genre=><option value={genre.id}>{genre.name}</option>)}
+        </select>
         <ul>
           {podcast}
         </ul>
