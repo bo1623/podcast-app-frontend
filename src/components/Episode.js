@@ -10,7 +10,7 @@ export default class Episode extends Component {
     return(
       <div className="episode">
         <p>{episode.title}</p>
-        <p>{episode.description}</p>
+        <Markup content={description}/>
         <p>Published: {episode.published_date}</p>
         <p>Duration: {episode.audio_length}</p>
       </div>
@@ -18,4 +18,4 @@ export default class Episode extends Component {
   }
 
 }
-// <Markup content={description}/>
+// <p>{episode.description}</p>
