@@ -19,7 +19,7 @@ class PodcastsContainer extends Component{
   handleOnChange = (event) =>{
     console.log('dropdown list is working')
     const genreId=event.target.value
-
+    this.props.fetchPodcastsWithId(genreId)
   }
 
   render(){
@@ -55,7 +55,8 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => ({
-  fetchPodcasts: () => dispatch(fetchPodcasts())
+  fetchPodcasts: () => dispatch(fetchPodcasts()),
+  fetchPodcastsWithId: id => dispatch(fetchPodcasts(id))
 })
 
 export default connect(mapStateToProps,mapDispatchToProps)(PodcastsContainer)
