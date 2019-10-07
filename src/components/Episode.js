@@ -1,10 +1,12 @@
 import React,{Component} from 'react';
+import {Markup} from 'interweave';
 
 
 export default class Episode extends Component {
 
   render(){
     const {episode} = this.props
+    const description=episode.description
     return(
       <div className="episode">
         <p>{episode.title}</p>
@@ -16,3 +18,4 @@ export default class Episode extends Component {
   }
 
 }
+// <Markup content={description}/>

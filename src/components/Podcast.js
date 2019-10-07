@@ -2,7 +2,6 @@ import React,{Component} from 'react';
 import { Link } from 'react-router-dom';
 import {
   BrowserRouter as Router,
-  Switch,
   Route
 } from 'react-router-dom';
 import EpisodesContainer from '../containers/EpisodesContainer'
@@ -19,28 +18,24 @@ class Podcast extends Component{
 
   render(){
     const {podcast} = this.props
-    const {match} = this.props
-
 
     return(
-      <div className='podcast'>
-        <img src={podcast.image} />
-        <div className='podcast-details' onClick={()=>this.props.addEpisodes(podcast.podcast_id)}>
-          <Link
-            key={podcast.podcast_id}
-            to={`/podcasts/${podcast.podcast_id}`}
-            onClick={() => this.props.addEpisodes(podcast.podcast_id)}
-          >{podcast.title}</Link>
+      <Router>
+        <div className='podcast'>
+          <img src={podcast.image} />
+          <div className='podcast-details' onClick={()=>this.props.addEpisodes(podcast.podcast_id)}>
+            <Link
+              key={podcast.podcast_id}
+              to={`/podcasts/${podcast.podcast_id}`}
+              onClick={() => this.props.addEpisodes(podcast.podcast_id)}
+            >{podcast.title}</Link>
+            <br></br>
+            <span>Total Episodes: {podcast.total_episodes}</span>
+          </div>
           <br></br>
-          <span>Total Episodes: {podcast.total_episodes}</span>
+          <Route path={'/podcasts/:podcastid'} component={EpisodesContainer} />
         </div>
-        <br></br>
-        <Router>
-          <Route path={`${match.path}/:topicId`}>
-            <EpisodesContainer />
-          </Route>
-        </Router>
-      </div>
+      </Router>
     )
   }
 }
@@ -50,5 +45,3 @@ const mapDispatchToProps = dispatch => ({
 })
 
 export default connect(null,mapDispatchToProps)(Podcast);
-
-// <Route path={'/podcasts/:podcastid'} component={EpisodesContainer} />

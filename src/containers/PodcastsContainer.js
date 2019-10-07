@@ -22,13 +22,7 @@ class PodcastsContainer extends Component{
     let podcast
     if(!!this.props.podcasts.podcasts){ //if the podcasts have loaded onto the state successfully then only can we carry out the line below,
       //otherwise an error will be thrown saying map cannot be called on undefined
-      podcast=this.props.podcasts.podcasts.map(podcast=>
-        <Router>
-          <Route path='/podcasts'
-          render={(props) => <Podcast {...props} podcast={podcast}/>}
-          />
-        </Router>
-      )
+      podcast=this.props.podcasts.podcasts.map(podcast=><Podcast podcast={podcast}/>)
     }
     return (
       <div className='podcast-container'>
@@ -54,7 +48,6 @@ const mapDispatchToProps = dispatch => ({
 
 export default connect(mapStateToProps,mapDispatchToProps)(PodcastsContainer)
 
-// <Podcast podcast={podcast}/>
 
 // <Route path={`${match.url}/:podcastId`} render={routerProps => <PodcastEps {...routerProps} />}/>
 
