@@ -4,7 +4,7 @@ import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom';
-import PodcastEps from './PodcastEps'
+import EpisodesContainer from '../containers/EpisodesContainer'
 import {connect} from 'react-redux'
 import fetchPodcast from '../actions/fetchPodcast'
 
@@ -33,7 +33,7 @@ class Podcast extends Component{
             <span>Total Episodes: {podcast.total_episodes}</span>
           </div>
           <br></br>
-          <Route path={'/podcasts/:podcastid'} component={PodcastEps} />
+          <Route path={'/podcasts/:podcastid'} component={EpisodesContainer} />
         </div>
       </Router>
     )

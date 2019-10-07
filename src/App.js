@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 import NavBar from './containers/NavBar';
 import PodcastsContainer from './containers/PodcastsContainer'
-import PodcastEps from './components/PodcastEps'
+import EpisodesContainer from './containers/EpisodesContainer'
 
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
       <div>
         <NavBar />
         <Route exact path='/podcasts' component={PodcastsContainer} />
-        <Route path='/episodes' component={PodcastEps} />
+        <Route path='/episodes' component={EpisodesContainer} />
       </div>
     </Router>
   );

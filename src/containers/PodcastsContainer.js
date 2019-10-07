@@ -6,7 +6,7 @@ import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom';
-import PodcastEps from '../components/PodcastEps'
+import EpisodesContainer from './EpisodesContainer'
 
 class PodcastsContainer extends Component{
 
