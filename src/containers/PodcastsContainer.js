@@ -22,6 +22,7 @@ class PodcastsContainer extends Component{
       <div className='podcast-container'>
         <ul>
           {podcast}
+          <PodcastList podcasts={this.props.podcasts.podcasts}
         </ul>
       </div>
     )
