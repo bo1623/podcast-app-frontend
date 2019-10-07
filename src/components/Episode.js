@@ -9,7 +9,7 @@ export default class Episode extends Component {
     const description=episode.description
     return(
       <div className="episode">
-        <p>{episode.title}</p>
+        <div>{episode.title} <button>Add to Playlist</button> </div>
         <Markup content={description}/>
         <p>Published: {episode.published_date}</p>
         <p>Duration: {episode.audio_length}</p>
