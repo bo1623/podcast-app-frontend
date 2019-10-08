@@ -1,5 +1,6 @@
 import React,{Component} from 'react'
 import {connect} from 'react-redux'
+import login from '../actions/login'
 
 class Login extends Component{
 
@@ -7,15 +8,20 @@ class Login extends Component{
     username:''
   }
 
-  handleOnChange=()=>{
+  handleOnChange=event=>{
     this.setState({
       username: event.target.value
     })
   }
 
+  handleOnSubmit=event=>{
+    event.preventDefault()
+    this.props.login(this.state.username)
+  }
+
   render(){
     return(
-      <form className="login-form">
+      <form className="login-form" onSubmit={this.handleOnSubmit}>
         <label>Username: </label>
           <input onChange={this.handleOnChange} type="text" name="username" placeholder="Enter username" value={this.state.username} />
           <input type="submit" value="Login" />
@@ -25,7 +31,7 @@ class Login extends Component{
 }
 
 const mapDispatchToProps = dispatch => ({
-  login: () => dispatch()
+  login: username => dispatch(login(username))
 })
 
 
