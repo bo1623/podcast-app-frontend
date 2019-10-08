@@ -77,13 +77,14 @@ function episodesReducer(state=[],action){ //takes json data returned from API f
   }
 }
 
-function userReducer(state={isLoggedIn: false},action){
+function userReducer(state={isLoggedIn: false,username:''},action){
 
   switch(action.type){
     case "LOG_IN":
       return{
         ...state,
-        isLoggedIn: true
+        isLoggedIn: true,
+        username: action.username
       }
     default:
       return state
