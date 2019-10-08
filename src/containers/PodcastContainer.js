@@ -11,11 +11,10 @@ class PodcastContainer extends Component{
   }
 
   render(){
-    console.log(this.props.match.params.podcastid)
     return(
       <div>
         <h1>Inside podcast container</h1>
-        <PodcastShow />
+        <PodcastShow podcast={this.props.podcast}/>
         <EpisodesContainer podcastId={this.props.match.params.podcastid}/>
       </div>
     )
@@ -27,4 +26,10 @@ const mapDispatchToProps = dispatch => ({
   showPodcast: id => dispatch(fetchPodcastShow(id))
 })
 
-export default connect(null, mapDispatchToProps)(PodcastContainer)
+const mapStateToProps = state => {
+  return{
+    podcast: state.podcast
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PodcastContainer)
