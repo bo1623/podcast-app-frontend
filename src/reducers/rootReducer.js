@@ -5,7 +5,8 @@ import uuid from 'uuid';
 const rootReducer=combineReducers({
   podcasts: podcastsReducer,
   playlist: playlistReducer,
-  episodes: episodesReducer
+  episodes: episodesReducer,
+  podcast: podcastReducer
 })
 
 export default rootReducer;
@@ -34,6 +35,18 @@ function podcastsReducer(state=[],action){
   }
 }
 
+function podcastReducer(state=[],action){
+  switch(action.type){
+    case "SHOW_PODCAST":
+      console.log(action)
+      const podcast={
+
+      }
+    default:
+      return state
+  }
+}
+
 function episodesReducer(state=[],action){
   switch(action.type){
     case "ADD_EPISODES":
@@ -47,7 +60,6 @@ function episodesReducer(state=[],action){
           audio_length: episode.audio_length_sec,
           description: episode.description,
           published_date: episode.pub_date_ms
-
         }
       })
       return{

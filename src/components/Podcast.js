@@ -10,19 +10,12 @@ import fetchPodcast from '../actions/fetchPodcast'
 
 class Podcast extends Component{
 
-  handleOnClick = () => {
-    debugger;
-    console.log('click is working')
-
-    this.props.addEpisodes(this.props.podcast.podcast_id)
-  }
-
   render(){
     const {podcast} = this.props
     return(
         <div className='podcast'>
           <img src={podcast.image} />
-          <div className='podcast-details' onClick={()=>this.props.addEpisodes(podcast.podcast_id)}>
+          <div className='podcast-details' >
             <Link
               key={podcast.podcast_id}
               to={`/podcasts/${podcast.podcast_id}`}
