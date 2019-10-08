@@ -9,8 +9,11 @@ import fetchPodcast from '../actions/fetchPodcast'
 
 class EpisodesContainer extends Component {
 
+  componentDidMount(){
+    this.props.addEpisodes(this.props.podcastId)
+  }
+
   render(){
-    console.log(this.props)
     let episodes
     if(!!this.props.episodes.episodes){
       episodes=this.props.episodes.episodes.map(episode=><Episode episode={episode}/>)
