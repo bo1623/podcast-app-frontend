@@ -17,15 +17,21 @@ class Login extends Component{
   handleOnSubmit=event=>{
     event.preventDefault()
     this.props.login(this.state.username)
+    const el=document.getElementById('login')
+    el.remove()
+    const login_form=document.querySelector('.login-form')
+    login_form.innerHTML+=`Current User: ${this.state.username}`
   }
 
   render(){
     return(
-      <form className="login-form" onSubmit={this.handleOnSubmit}>
-        <label>Username: </label>
-          <input onChange={this.handleOnChange} type="text" name="username" placeholder="Enter username" value={this.state.username} />
-          <input type="submit" value="Login" />
-      </form>
+      <div className='login-form'>
+        <form id="login" onSubmit={this.handleOnSubmit}>
+          <label>Username: </label>
+            <input onChange={this.handleOnChange} type="text" name="username" placeholder="Enter username" value={this.state.username} />
+            <input type="submit" value="Login" />
+        </form>
+      </div>
     )
   }
 }
