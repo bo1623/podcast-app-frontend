@@ -23,7 +23,6 @@ class PodcastsContainer extends Component{
   }
 
   render(){
-    console.log(genre_ids)
     console.log(this.props.match)
     const sorted_genres=genre_ids.sort((a, b) => (a.name > b.name) ? 1 : -1)
     const {match} = this.props

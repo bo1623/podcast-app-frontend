@@ -13,14 +13,13 @@ class Podcast extends Component{
   handleOnClick = () => {
     debugger;
     console.log('click is working')
+
     this.props.addEpisodes(this.props.podcast.podcast_id)
   }
 
   render(){
     const {podcast} = this.props
-
     return(
-      <Router>
         <div className='podcast'>
           <img src={podcast.image} />
           <div className='podcast-details' onClick={()=>this.props.addEpisodes(podcast.podcast_id)}>
@@ -33,9 +32,7 @@ class Podcast extends Component{
             <span>Total Episodes: {podcast.total_episodes}</span>
           </div>
           <br></br>
-          <Route path={'/podcasts/:podcastid'} component={EpisodesContainer} />
         </div>
-      </Router>
     )
   }
 }
@@ -45,3 +42,6 @@ const mapDispatchToProps = dispatch => ({
 })
 
 export default connect(null,mapDispatchToProps)(Podcast);
+
+// <Route path='/podcasts/:podcastId' component={EpisodesContainer} />
+// if props.match.podcastID exists, then render the episodes container and manually pass in ID or get it from match within there

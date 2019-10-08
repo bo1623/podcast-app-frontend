@@ -1,12 +1,3 @@
-// const fetchPodcasts = () => {
-//   return dispatch => {
-//     // dispatch({type:"LOADING_CATS"})
-//     fetch('https://learn-co-curriculum.github.io/cat-api/cats.json')
-//     .then(resp=>resp.json())
-//     .then(json=>dispatch({type:"ADD_PODCAST", podcasts: json.images}))
-//   }
-// }
-
 const fetchPodcasts = (id) => {
   let url
   if(!!id){ //on first load when no id is passed

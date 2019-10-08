@@ -5,6 +5,7 @@ import {
 } from 'react-router-dom';
 import {connect} from 'react-redux';
 import Episode from '../components/Episode'
+import fetchPodcast from '../actions/fetchPodcast'
 
 class EpisodesContainer extends Component {
 
@@ -24,6 +25,12 @@ class EpisodesContainer extends Component {
 
 }
 
+// onClick={() => this.props.addEpisodes(podcast.podcast_id)}
+
+const mapDispatchToProps = dispatch => ({
+  addEpisodes: id => dispatch(fetchPodcast(id))
+})
+
 const mapStateToProps = state => {
   return {
     episodes: state.episodes
@@ -31,4 +38,4 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps)(EpisodesContainer)
+export default connect(mapStateToProps,mapDispatchToProps)(EpisodesContainer)
