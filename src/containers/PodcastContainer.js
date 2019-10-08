@@ -13,7 +13,6 @@ class PodcastContainer extends Component{
   render(){
     return(
       <div>
-        <h1>Inside podcast container</h1>
         <PodcastShow podcast={this.props.podcast}/>
         <EpisodesContainer podcastId={this.props.match.params.podcastid}/>
       </div>

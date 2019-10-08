@@ -6,12 +6,13 @@ const rootReducer=combineReducers({
   podcasts: podcastsReducer,
   playlist: playlistReducer,
   episodes: episodesReducer,
-  podcast: podcastReducer
+  podcast: podcastReducer,
+  user: userReducer
 })
 
 export default rootReducer;
 
-function podcastsReducer(state=[],action){
+function podcastsReducer(state=[],action){ //renders list of podcasts
 
   switch(action.type){
     case "ADD_PODCAST":
@@ -35,7 +36,7 @@ function podcastsReducer(state=[],action){
   }
 }
 
-function podcastReducer(state=[],action){
+function podcastReducer(state=[],action){ //use to set state of podcast key for the podcast show page
   switch(action.type){
     case "SHOW_PODCAST":
       console.log(action)
@@ -53,7 +54,7 @@ function podcastReducer(state=[],action){
   }
 }
 
-function episodesReducer(state=[],action){
+function episodesReducer(state=[],action){ //takes json data returned from API fetch request returning a specific episode based on id
   switch(action.type){
     case "ADD_EPISODES":
       console.log(action)
@@ -74,6 +75,20 @@ function episodesReducer(state=[],action){
     default:
       return state
   }
+}
+
+function userReducer(state={isLoggedIn: false},action){
+
+  switch(action.type){
+    case "LOG_IN":
+      return{
+        ...state,
+        isLoggedIn: true
+      }
+    default:
+      return state
+  }
+
 }
 
 

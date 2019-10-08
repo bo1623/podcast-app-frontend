@@ -28,7 +28,6 @@ class EpisodesContainer extends Component {
 
 }
 
-// onClick={() => this.props.addEpisodes(podcast.podcast_id)}
 
 const mapDispatchToProps = dispatch => ({
   addEpisodes: id => dispatch(fetchPodcast(id))

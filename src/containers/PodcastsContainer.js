@@ -33,6 +33,7 @@ class PodcastsContainer extends Component{
     }
     return (
       <div className='podcast-container'>
+        <label>Filter by genre: </label>
         <select id="genre-search" onChange={this.handleOnChange}>
           <option select="selected"></option>
           {sorted_genres.map(genre=><option value={genre.id}>{genre.name}</option>)}
