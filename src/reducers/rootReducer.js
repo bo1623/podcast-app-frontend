@@ -40,8 +40,14 @@ function podcastReducer(state=[],action){
     case "SHOW_PODCAST":
       console.log(action)
       const podcast={
-
+        description: action.podcast.description,
+        podcast_id: action.podcast.id,
+        image: action.podcast.image,
+        total_episodes: action.podcast.total_episodes,
+        title: action.podcast.title
       }
+      return podcast
+
     default:
       return state
   }

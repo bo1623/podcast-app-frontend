@@ -1,8 +1,14 @@
 import React,{Component} from 'react';
 import EpisodesContainer from './EpisodesContainer'
 import PodcastShow from '../components/PodcastShow'
+import {connect} from 'react-redux'
+import fetchPodcastShow from '../actions/fetchPodcastShow'
 
-export default class PodcastContainer extends Component{
+class PodcastContainer extends Component{
+
+  componentDidMount(){
+    this.props.showPodcast(this.props.match.params.podcastid)
+  }
 
   render(){
     console.log(this.props.match.params.podcastid)
@@ -16,3 +22,9 @@ export default class PodcastContainer extends Component{
   }
 
 }
+
+const mapDispatchToProps = dispatch => ({
+  showPodcast: id => dispatch(fetchPodcastShow(id))
+})
+
+export default connect(null, mapDispatchToProps)(PodcastContainer)
